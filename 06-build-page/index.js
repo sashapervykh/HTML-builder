@@ -203,7 +203,7 @@ fs.mkdir(`${wayToFinalFolder}`, { recursive: true }, (error) => {
 
       fs.readFile(`${wayToComponent}`, (err2, text) => {
         let code = text.toString();
-        str = str.replace(tag, code);
+        str = str.replace('{{' + `${tag}` + '}}', code);
 
         let wayToIndex = path.join(__dirname, 'project-dist', 'index.html');
         const outputStream = fs.createWriteStream(`${wayToIndex}`);
